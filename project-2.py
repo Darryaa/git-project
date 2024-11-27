@@ -508,27 +508,8 @@ param_grid = [
         'models': [KNeighborsClassifier()],
         'models__n_neighbors': range(2,5),
         'preprocessor__num': [StandardScaler(), MinMaxScaler(), 'passthrough']   
-    },
-
-    {
-        'models': [LogisticRegression(
-            random_state=RANDOM_STATE, 
-            solver='liblinear', 
-            penalty='l1'
-        )],
-        'models__C': range(1,5),
-        'preprocessor__num': [StandardScaler(), MinMaxScaler(), 'passthrough']  
-    },
-
- 
-     {
-        'models': [SVC(probability=True,random_state=RANDOM_STATE)],
-            'C':range(0,1), 
-            'degree':range(3,4),
-            'kernel': ['rbf'],
-
-        'preprocessor__num': [StandardScaler(), MinMaxScaler(), 'passthrough']  
     }
+
 ]
 
 randomized_search = RandomizedSearchCV(
